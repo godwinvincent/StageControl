@@ -10,6 +10,7 @@ import kivy
 kivy.require('1.0.7')
 
 import ConfigParser
+import string
 
 from kivy.app import App
 from kivy.uix.button import Button
@@ -18,13 +19,21 @@ from kivy.uix.label import Label
 from kivy.config import Config
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.scrollview import ScrollView
+from kivy.clock import Clock
 
-class TestApp(App):
+class StageControl(App):
 
     def build(self):
     	
         def button_press(x):
 			print x.text;
+        def sayHi(x):
+            pass
+
+        self.control = Control()
+
+        Clock.schedule_interval(self.control.loop,0)
+
 
     	layout = FloatLayout(size=(300, 300))
 
@@ -51,10 +60,26 @@ class TestApp(App):
         root = ScrollView(size_hint=(None, None), size=(400, 450))
         root.add_widget(glayout)
 
+        
+
     	layout.add_widget(root)
 
     	return layout
+
+class Control:
+    config = ConfigParser.ConfigParser()
+    def __init__(self):
+       self.config.read("scenes.txt")
+       for section in self.config.sections():
+            print section
+            for option in self.config.options(section):
+                print " ", option, "=", self.config.get(section, option)
+    def loop(self,dt):
+        pass
+        
+
+
         
 
 if __name__ == '__main__':
-    TestApp().run()
+    StageControl().run()
