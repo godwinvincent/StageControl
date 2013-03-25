@@ -1,7 +1,20 @@
 [foo]
-
+setting: 0
 [bar]
-
+setting: 1
 [such]
-
+setting: 2
 [loly]
+setting: 3
+[hi]
+setting: 4
+[bye]
+setting: 5
+[nan]
+setting: 6
+[shot]
+setting: 7
+[sax]
+setting: 8
+[call]
+setting: 9
