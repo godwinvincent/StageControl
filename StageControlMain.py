@@ -71,7 +71,7 @@ class StageControl(App):
 
         #self.control = Control()
 
-        Clock.schedule_interval(loop,.1)
+        Clock.schedule_interval(loop,0)
 
 
     	layout = FloatLayout(size=(300, 300))
